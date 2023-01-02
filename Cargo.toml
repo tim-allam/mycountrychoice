@@ -1,0 +1,12 @@
+[package]
+name = "countries"
+version = "0.1.0"
+authors = ["timallam <timur.allamiyarov@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.0.29", features = ["derive"] }
+csv = "1.1.6"
+serde = { version = "1.0.141", features = ["derive"]}

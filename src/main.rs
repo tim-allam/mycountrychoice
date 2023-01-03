@@ -10,7 +10,6 @@ use data_reader::csv_reader::CSVReader;
 use filtering::factory::FilterFactory;
 
 fn main() {
-
     let command_line_parser = InputDataParser::new();
     let input_filename = command_line_parser.get_csv_filename();
     let csv_reader = CSVReader::new(&input_filename);
@@ -23,6 +22,7 @@ fn main() {
         let filter = FilterFactory::generate_filter(&filter_params);
         let mut filtered_records = filter.process(&valid_records);
 
+        // sort country records so that the contry with the higher traveling power comes first
         filtered_records.sort_by(|a, b| b.travel_power.cmp(&a.travel_power));
 
         if !filtered_records.is_empty() {

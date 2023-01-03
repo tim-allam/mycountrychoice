@@ -44,25 +44,14 @@ impl InputDataParser {
         let citizenship = self.arguments.citizenship.as_ref();
 
         match (freedom, tax, citizenship) {
-            (Some(freedom_value), 
-             Some(tax_value), 
-             Some(dual_citizenship_value)) => {
-                Some( 
-                    FilterParams::FreedomTaxCitizenship(
-                        *freedom_value, 
-                        *tax_value, 
-                        *dual_citizenship_value
-                ))
+            (Some(f), Some(t), Some(dc)) => {
+                Some( FilterParams::FreedomTaxCitizenship(*f, *t, *dc) )
             },
             (None, Some(t), Some(dc)) => {
-                Some( 
-                    FilterParams::DualCitizenshipTax(*t, *dc)
-                )
+                Some( FilterParams::DualCitizenshipTax(*t, *dc) )
             },
             (None, Some(t), None) => {
-                Some( 
-                    FilterParams::BetterTax(*t)
-                )
+                Some( FilterParams::BetterTax(*t) )
             },
             _ => { None }
         } 

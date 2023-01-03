@@ -39,9 +39,9 @@ impl InputDataParser {
     }
 
     pub fn generate_filter_params(&self) -> Option<FilterParams> {
-        let freedom = self.arguments.freedom.clone();        
-        let tax = self.arguments.tax.clone();
-        let citizenship = self.arguments.citizenship.clone();
+        let freedom = self.arguments.freedom.as_ref();        
+        let tax = self.arguments.tax.as_ref();
+        let citizenship = self.arguments.citizenship.as_ref();
 
         match (freedom, tax, citizenship) {
             (Some(freedom_value), 
@@ -49,19 +49,19 @@ impl InputDataParser {
              Some(dual_citizenship_value)) => {
                 Some( 
                     FilterParams::FreedomTaxCitizenship(
-                        freedom_value, 
-                        tax_value, 
-                        dual_citizenship_value
+                        *freedom_value, 
+                        *tax_value, 
+                        *dual_citizenship_value
                 ))
             },
-            (None, Some(t), Some(d)) => {
+            (None, Some(t), Some(dc)) => {
                 Some( 
-                    FilterParams::DualCitizenshipTax(t, d)
+                    FilterParams::DualCitizenshipTax(*t, *dc)
                 )
             },
             (None, Some(t), None) => {
                 Some( 
-                    FilterParams::BetterTax(t)
+                    FilterParams::BetterTax(*t)
                 )
             },
             _ => { None }

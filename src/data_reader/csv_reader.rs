@@ -2,8 +2,7 @@ use std::fs;
 
 use crate::cdata::record::Record;
 
-use super::interface::CountryRecordReader; 
-use super::interface::ReaderResult;
+use super::interface::{CountryRecordReader, ReaderResult}; 
 
 // Definition of the CSV structre
 pub struct CSVReader<'a> {

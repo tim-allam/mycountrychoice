@@ -1,8 +1,6 @@
 
 use super::interface::IFilter;
 use super::params::FilterParams;
-// use crate::filtering::interface::IFilter;
-// use crate::filtering::params::FilterParams;
 
 use super::collection::{
     BetterTaxFilter,

@@ -1,4 +1,3 @@
-
 pub enum FilterParams {
     BetterTax(u8),
     DualCitizenshipTax(u8, u8),

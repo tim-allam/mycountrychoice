@@ -1,5 +1,5 @@
 use crate::cdata::record::Record;
-use crate::filtering::interface::IFilter;
+use super::interface::IFilter;
 
 pub struct BetterTaxFilter {
     tax: u8

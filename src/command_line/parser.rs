@@ -56,5 +56,5 @@ impl InputDataParser {
             _ => { None }
         } 
     }
-   
 }
+
